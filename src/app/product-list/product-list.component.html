@@ -1,0 +1,21 @@
+<div class="productList-head d-flex justify-content-between align-items-center">
+    <p class="mt-3"> All Country : {{lengthColl}}</p>
+    <p class="mt-3"> Start Pagination :
+        <mat-paginator [length]="lengthColl" [pageSize]="defaultRecords" [pageIndex]="pageIndex"
+            (page)="onPaginateChange($event)">
+        </mat-paginator>
+    </p>
+</div>
+<div class="featured-wrap d-flex flex-wrap mb-5">
+    <!-- {{updatedList | json}} -->
+    <div class="featured-iner" *ngFor="let list of updatedList">
+        <div class="img-wrap-flag d-flex align-items-center">
+            <img src="{{list.flag}}" (click)="menuClicked(list)">
+        </div>
+        <h3 class="mt-3 mb-1" (click)="menuClicked(list)">{{list.name}}</h3>
+        <p class="genderCategory">
+            <input type="checkbox" [checked]="list.visited" (click)="setVisited(list, $event)"> <span class="ms-2"
+                [ngClass]="list.visited ? 'visitedPlace' : 'notVisited'">Visited</span>
+        </p>
+    </div>
+</div>

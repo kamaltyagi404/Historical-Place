@@ -1,0 +1,412 @@
+$themeColor: #0084d6;
+$textGray: #999999;
+$lightGray: #e5e5e5;
+$colorBlack: #000000;
+$whiteColor: #ffffff;
+$system: system-ui;
+$colorBlue: #1e73be;
+$colorGreen: #81d742;
+$colorRed: #ce592f;
+$colorBrown: #aa7627;
+$colorAqua: #1fb1c1;
+$colorOrange: #f49922;
+$colorPurple: #ce25e8;
+$colorYellow: #e6e707;
+$backgroundColor: #f5f7f9;
+
+@mixin reviewInputField {
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  padding: 10px;
+}
+
+.colorBlue {
+  background-color: $colorBlue;
+}
+
+.colorGreen {
+  background-color: $colorGreen;
+}
+
+.colorRed {
+  background-color: $colorRed;
+}
+
+.colorBlack {
+  background-color: $colorBlack;
+}
+
+.colorBrown {
+  background-color: $colorBrown;
+}
+
+.colorAqua {
+  background-color: $colorAqua;
+}
+
+.colorOrange {
+  background-color: $colorOrange;
+}
+
+.colorPurple {
+  background-color: $colorPurple;
+}
+
+.colorYellow {
+  background-color: $colorYellow;
+}
+
+span.color {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 2px solid $whiteColor;
+  outline: 1px solid $whiteColor;
+  margin: 0px 5px 0px 0;
+  display: inline-block;
+}
+
+table span.color {
+  height: 8px;
+  width: 24px;
+  border-radius: 2px;
+  border: 0;
+  outline: 0;
+  margin: 0px 0px 0px 5px;
+
+}
+
+.product-detail-wrap {
+  font-family: $system;
+  display: flex;
+  font-size: 16px;
+
+  .detail-iner-wrap {
+    width: 47%;
+    margin: 1.5%;
+    position: relative;
+
+    img {
+      max-width: 100%;
+    }
+
+    .productName {
+      font-size: 1.875rem;
+    }
+
+    .priceRange {
+      font-size: 1.5rem;
+      font-weight: 500;
+
+      span {
+        font-size: 16px;
+        font-weight: 400;
+        color: $textGray
+      }
+    }
+
+    span.color:hover {
+      outline: 1px solid $colorBlack;
+    }
+
+    .filterPrice {
+      border-top: 1px solid $lightGray;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+      font-size: 20px;
+
+      span {
+        color: $textGray;
+        font-size: 12px;
+      }
+    }
+
+    .adToCart {
+
+      input[type='number'] {
+        width: 50px;
+        height: 35px;
+        text-align: center;
+        border: 1px solid $lightGray;
+      }
+
+      button {
+        width: 250px;
+        height: 37px;
+        color: $whiteColor;
+        border: 0px;
+        background-color: $themeColor;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+    }
+
+    .productCode {
+      color: $textGray;
+    }
+
+
+  }
+}
+
+::ng-deep .mat-tooltip {
+  background-color: $themeColor;
+  font-size: 11px;
+}
+
+/*Set magnifier glass Start*/
+::ng-deep .img-magnifier-glass {
+  position: absolute;
+  border: 3px solid $colorBlack;
+  border-radius: 50%;
+  cursor: none;
+  display: none;
+  width: 100px;
+  height: 100px;
+}
+
+.detail-iner-wrap:hover ::ng-deep .img-magnifier-glass {
+  display: block;
+}
+
+/*Set magnifier glass End*/
+
+/*mat-tab-group start*/
+mat-tab-group {
+  font-family: system-ui;
+}
+
+::ng-deep {
+
+  .mat-tab-body-wrapper {
+    margin-top: 40px;
+
+    .tab-view img {
+      width: 49%;
+      margin: 0.5%;
+    }
+
+    .mat-tab-header {
+      border-top: 1px solid $lightGray;
+    }
+
+    .mat-ink-bar {
+      top: 0;
+      background-color: #000000 !important;
+      height: 3px !important;
+    }
+
+    .mat-tab-label {
+      color: black;
+      font-size: 17px;
+      font-weight: 400;
+    }
+  }
+}
+
+/*mat-tab-group End*/
+
+// rating button start //
+.rating-Formgroup {
+  display: flex;
+}
+
+.form-check-inline {
+  margin-right: 10px;
+}
+
+.form-check-inline .rating {
+  display: none;
+}
+
+.form-check-inline span {
+  font-size: 25px;
+  cursor: pointer;
+  color: transparent;
+}
+
+.form-check-inline span:before {
+  content: '\2606';
+  color: $themeColor;
+}
+
+.form-check-inline span:hover:before,
+.form-check-inline span:hover~span:before {
+  content: '\2605';
+  color: $themeColor;
+}
+
+.form-check-inline .rating:checked~span:before {
+  content: '\2605';
+  color: $themeColor;
+}
+
+.rating-Formgroup:has(input[id="2"]:checked) input[id='1']+span:before {
+  content: '\2605';
+  color: $themeColor;
+}
+
+.rating-Formgroup:has(input[id="3"]:checked) input[id='1']+span:before,
+.rating-Formgroup:has(input[id="3"]:checked) input[id='2']+span:before {
+  content: '\2605';
+  color: $themeColor;
+}
+
+.rating-Formgroup:has(input[id="4"]:checked) input[id='1']+span:before,
+.rating-Formgroup:has(input[id="4"]:checked) input[id='2']+span:before,
+.rating-Formgroup:has(input[id="4"]:checked) input[id='3']+span:before {
+  content: '\2605';
+  color: $themeColor;
+}
+
+.rating-Formgroup:has(input[id="5"]:checked) input[id='1']+span:before,
+.rating-Formgroup:has(input[id="5"]:checked) input[id='2']+span:before,
+.rating-Formgroup:has(input[id="5"]:checked) input[id='3']+span:before,
+.rating-Formgroup:has(input[id="5"]:checked) input[id='4']+span:before {
+  content: '\2605';
+  color: $themeColor;
+}
+
+.rating-Formgroup:has(input[id="2"]:hover) input[id='1']+span:before {
+  content: '\2605';
+  color: $themeColor;
+}
+
+.rating-Formgroup:has(input[id="3"]:hover) input[id='1']+span:before,
+.rating-Formgroup:has(input[id="3"]:hover) input[id='2']+span:before {
+  content: '\2605';
+  color: $themeColor;
+}
+
+.rating-Formgroup:has(input[id="4"]:hover) input[id='1']+span:before,
+.rating-Formgroup:has(input[id="4"]:hover) input[id='2']+span:before,
+.rating-Formgroup:has(input[id="4"]:hover) input[id='3']+span:before {
+  content: '\2605';
+  color: $themeColor;
+}
+
+.rating-Formgroup:has(input[id="5"]:hover) input[id='1']+span:before,
+.rating-Formgroup:has(input[id="5"]:hover) input[id='2']+span:before,
+.rating-Formgroup:has(input[id="5"]:hover) input[id='3']+span:before,
+.rating-Formgroup:has(input[id="5"]:hover) input[id='4']+span:before {
+  content: '\2605';
+  color: $themeColor;
+}
+
+// rating button End //
+
+.about {
+  font-size: 17px;
+  line-height: 32px;
+}
+
+.aboutMore {
+  color: $themeColor;
+}
+
+.table {
+  .oldPrice {
+    color: $textGray;
+  }
+
+  .sizeBox span {
+    padding: 3px 6px;
+    border: 1px solid $lightGray;
+    margin-right: 5px;
+  }
+}
+
+.feedback-wrap {
+
+  ul {
+    list-style-type: none;
+    border-left: 5px solid $themeColor;
+    padding: 0px 30px 15px 30px;
+  }
+
+  ul:nth-child(even) {
+    border-left: 5px solid $lightGray;
+  }
+}
+
+::ng-deep {
+  .mat-snack-bar-container {
+    background-color: $themeColor;
+  }
+
+  .mat-simple-snackbar {
+    font-size: 17px;
+    color: $whiteColor;
+  }
+
+  .mat-simple-snackbar-action {
+    color: $whiteColor;
+  }
+  
+  .snackbarWarning{
+    background-color: $colorRed;
+  }
+  .snackbarSuccess{
+    background-color: $colorGreen;
+  }
+}
+
+
+.review-wrap {
+  border: 1px solid $lightGray;
+  background-color: $backgroundColor;
+
+  p.star {
+
+    .fa,
+    .fas,
+    .far {
+      margin-right: 1px;
+      color: $textGray;
+      font-size: 12px;
+    }
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+  textarea {
+    min-height: 100px;
+    @include reviewInputField;
+  }
+
+  textarea:focus {
+    outline: none;
+  }
+
+  input {
+    @include reviewInputField;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  input[type="submit"] {
+    font-family: system-ui;
+    width: 150px;
+    height: 40px;
+    background: $themeColor;
+    color: $whiteColor;
+    text-transform: uppercase;
+    font-weight: 500;
+
+  }
+
+  input.disabled {
+    background-color: $lightGray;
+    color: $textGray;
+  }
+
+  .mat-input-element {
+    background-color: $whiteColor;
+  }
+
+}

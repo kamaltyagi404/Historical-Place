@@ -1,0 +1,23 @@
+$whiteColor: #ffffff;
+$themeColor: #0084d6;
+
+.header-wrap {
+    position: static;
+    background-color: $themeColor;
+    padding: 10px 0;
+    align-items: center;
+    left: 0;
+    right: 0;
+    text-transform: uppercase;
+
+    .menu-wrap {
+        align-items: center;
+
+        span {
+            color: $whiteColor;
+            padding: 0 10px;
+            margin: 0 10px;
+            font-size: 15px;
+        }
+    }
+}
