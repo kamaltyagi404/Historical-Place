@@ -1,0 +1,19 @@
+$themeColor: #0084d6;
+$whiteColor: #ffffff;
+.copyright-wrap {
+    background-color: $themeColor;
+    color: $whiteColor;
+
+    .copytright {
+        font-family: system-ui;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .socialMedia {
+        .fa-brands {
+            margin-left: 20px;
+            font-size: 20px;
+        }
+    }
+}

@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="product-detail-wrap d-flex flex-wrap pt-5 mb-5">
+        <div class="detail-iner-wrap">
+            <img src="{{image}}">
+        </div>
+        <div class="detail-iner-wrap">
+            <p>
+                <span *ngFor="let cat of productDetails.category">
+                    <span class="me-2 mt-3">{{cat}},</span>
+                </span>
+            </p>
+            <p class="productName mt-4">{{productDetails.name}}</p>
+            <p class="about mt-4">{{about}} </p>
+            <p class="about"> <span class="aboutMore" (click)="scroll(target)">Click to get more details >></span></p>
+            <hr>
+            <p>This country is in <b>{{productDetails.visited ? 'Visited' : 'Not Visited'}}</b> country list</p>
+            <hr>
+            <p>Country id :  {{productDetails.iso3}}</p>
+            <hr>
+            <p class="text-break">Country's image source path : {{productDetails.flag}}</p>
+            <hr>
+        </div>
+    </div>
+    
+    <div #target class="mb-5">
+        <mat-tab-group>
+            <mat-tab id="description" label="Description">
+                <h2>Place Description</h2>
+                <p class="about">{{productDetails.about}}</p>
+            </mat-tab>
+            <mat-tab label="View">
+                <h2 class="mt-4">All Images of {{productDetails.name}}</h2>
+                <div class="tab-view"> 
+                    <img src="../../assets/img/brandOne.jpg">
+                    <img src="../../assets/img/brandTwo.jpg">
+                    <img src="../../assets/img/brandThree.jpg">
+                    <img src="../../assets/img/brandOne.jpg">
+                    <img src="../../assets/img/brandTwo.jpg">
+                    <img src="../../assets/img/brandThree.jpg">
+                </div>
+            </mat-tab>
+            <mat-tab label="Reviews">
+                <div class="feedback-wrap mb-3" *ngIf="productDetails.review.length>0; else noReview">
+                    <ul class="mb-4" *ngFor="let rev of productDetails.review">
+                        <li class="fs-6 text-muted lh-lg">"{{rev.remark}}"</li>
+                        <li class="fst-italic text-muted">-- {{rev.name}}</li>
+                    </ul>
+                </div>
+                <ng-template #noReview>
+                    <p>There are no review yet.</p>
+                </ng-template>
+                <div class="review-wrap p-5 mt-4">
+                    <p class="fs-5">Be the first to review for "{{productDetails.name}}". Your reviews are important for
+                        us.</p>
+                    <p>Your email address will not be published. Required fields are marked *</p>
+                    
+                    <form [formGroup]="reviewForm" (ngSubmit)="submitFinalAmount()">
+                        <h3 class="mb-0 mt-3">Your Review *</h3>
+                        <textarea matInput formControlName='remarks'></textarea>
+                        <app-error-validatoin [errorControlName]="'remarks'"
+                            [errorControl]="reviewForm.controls.remarks"></app-error-validatoin>
+                        <div class="row">
+                            <div class="col-6">
+                                <h3 class="mb-0 mt-3">Name *</h3>
+                                <input matInput type="text" formControlName='name'>
+                                <app-error-validatoin [errorControlName]="'name'"
+                                    [errorControl]="reviewForm.controls.name"></app-error-validatoin>
+                            </div>
+                            <div class="col-6">
+                                <h3 class="mb-0 mt-3">Email id *</h3>
+                                <input matInput type="email" formControlName='email'>
+                                <app-error-validatoin [errorControlName]="'email'"
+                                    [errorControl]="reviewForm.controls.email"></app-error-validatoin>
+                            </div>
+                        </div>
+                        <input matbu class="mb-5 mt-4" [ngClass]="!reviewForm.valid ? 'disabled' : ''"
+                            [disabled]="!reviewForm.valid" type="submit" value="Submit">
+                    </form>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

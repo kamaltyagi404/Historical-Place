@@ -1,0 +1,24 @@
+<div class="productPage">
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="sidebar mb-5 me-3">
+                    <h3>Categories</h3>
+                    <p>Total Country <span>({{visitedCountry.length + notVisitedCountry}})</span></p>
+                    <p>Visited Country <span>({{visitedCountry.length}})</span></p>
+                    <p>Not Visited <span>({{notVisitedCountry}})</span></p>
+                    <h3>Visited Country Name</h3>
+                    <div class="sideBestSeller mb-1 d-flex" *ngFor="let list of visitedCountry">
+                        <h4>{{list.countryName}}</h4>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="product-main mt-5 mb-5">
+                    <app-product-list></app-product-list>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
